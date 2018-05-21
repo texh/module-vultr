@@ -1878,7 +1878,7 @@ class Vultr extends Module
         $this->view->set('service', $service);
         $this->view->set('service_fields', $service_fields);
         $this->view->set('server_details', $server_details);
-        $this->view->set('application_details', $application_details);
+        $this->view->set('application_details', (isset($application_details) ? $application_details : new stdClass()));
         $this->view->set('vars', (isset($vars) ? $vars : new stdClass()));
 
         $this->view->setDefaultView('components' . DS . 'modules' . DS . 'vultr' . DS);
@@ -2245,7 +2245,7 @@ class Vultr extends Module
         $this->view->set('service', $service);
         $this->view->set('service_fields', $service_fields);
         $this->view->set('server_details', $server_details);
-        $this->view->set('application_details', $application_details);
+        $this->view->set('application_details', (isset($application_details) ? $application_details : new stdClass()));
         $this->view->set('vars', (isset($vars) ? $vars : new stdClass()));
 
         $this->view->setDefaultView('components' . DS . 'modules' . DS . 'vultr' . DS);
