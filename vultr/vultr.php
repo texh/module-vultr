@@ -1761,7 +1761,7 @@ class Vultr extends Module
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $repsponse = $vultr_api->halt($params);
+                    $response = $vultr_api->halt($params);
                     break;
                 case 'start':
                     $params = [
