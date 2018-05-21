@@ -134,6 +134,7 @@
 
                 hideSections();
                 showSection(item_class);
+                return false;
             });
 
             function hideSections() {
