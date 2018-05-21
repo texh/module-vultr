@@ -901,6 +901,9 @@ class Vultr extends Module
     {
         Loader::loadHelpers($this, ['Html']);
 
+        // Get the module row
+        $module_row = $this->getModuleRow((isset($package->module_row) ? $package->module_row : 0));
+
         // Get the available templates
         $templates = $this->getTemplates($module_row, $package);
 
