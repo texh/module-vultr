@@ -77,9 +77,15 @@
             $this->Form->end();
             ?>
 
-            <a href="<?php echo $this->Html->ifSet($server_details->kvm_url); ?>" class="btn btn-default btn-block<?php echo $this->Html->ifSet($server_details->kvm_url) ? ' disabled' : ''; ?>" target="_blank" style="margin-top: 10px;">
-                <i class="fa fa-terminal"></i> <?php $this->_('Vultr.tab_client_actions.action_kvm_console'); ?>
-            </a>
+            <?php
+            $this->Form->create($this->Html->ifSet($server_details->kvm_url), ['target' => '_blank']);
+            ?>
+            <button class="btn btn-default btn-block" style="margin-top: 10px;">
+                <i class="fa fa-terminal"></i> <?php $this->_('Vultr.tab_actions.action_kvm_console'); ?>
+            </button>
+            <?php
+            $this->Form->end();
+            ?>
         </div>
     </div>
 
