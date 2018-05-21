@@ -16,6 +16,17 @@
         <span class="btn btn-sm btn-<?php $this->Html->_($status_class); ?>" style="padding: 2px 4px;" disabled="disabled">
             <i class="fa fa-lightbulb-o"></i> <?php $this->_('Vultr.tab_client_actions.status_' . $this->Html->_($status, true)); ?>
         </span>
+
+        <?php
+        if ($this->Html->ifSet($server_details->status) == 'pending' || $this->Html->ifSet($server_details->server_state) != 'ok') {
+        ?>
+        <span class="btn btn-sm btn-warning" style="padding: 2px 4px;" disabled="disabled">
+            <i class="fa fa-refresh fa-spin"></i> <?php $this->_('Vultr.tab_client_actions.status_pending'); ?>
+        </span>
+        <?php
+        }
+        ?>
+
     </div>
 
     <div class="title_row">

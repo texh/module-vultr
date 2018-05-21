@@ -114,6 +114,7 @@ $lang['Vultr.tab_backups.backups_disabled'] = 'This server does not have automat
 $lang['Vultr.tab_client_actions.heading_status'] = 'Server Status';
 $lang['Vultr.tab_client_actions.status_online'] = 'Online';
 $lang['Vultr.tab_client_actions.status_offline'] = 'Offline';
+$lang['Vultr.tab_client_actions.status_pending'] = 'Changes Pending';
 
 $lang['Vultr.tab_client_actions.heading_actions'] = 'Actions';
 $lang['Vultr.tab_client_actions.action_restart'] = 'Restart';
