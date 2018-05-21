@@ -1542,7 +1542,8 @@ class Vultr extends Module
                 'SUBID' => $service_fields->vultr_subid
             ];
             $this->log('api.vultr.com|destroy', serialize($params), 'input', true);
-            $suspend_api->destroy($params);
+            $response = $suspend_api->destroy($params);
+            $this->parseResponse($response);
         }
 
         return null;
@@ -1754,26 +1755,26 @@ class Vultr extends Module
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->reboot($params);
+                    $repsponse = $vultr_api->reboot($params);
                     break;
                 case 'stop':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->halt($params);
+                    $repsponse = $vultr_api->halt($params);
                     break;
                 case 'start':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->reboot($params);
+                    $response = $vultr_api->reboot($params);
                     break;
                 case 'reinstall':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid,
                         'hostname' => $service_fields->vultr_hostname
                     ];
-                    $vultr_api->reinstall($params);
+                    $response = $vultr_api->reinstall($params);
                     break;
                 case 'change_template':
                     if ($package->meta->set_template == 'client') {
@@ -1792,6 +1793,10 @@ class Vultr extends Module
                     break;
                 default:
                     break;
+            }
+
+            if (!empty($response)) {
+                $this->parseResponse($response);
             }
         }
 
@@ -2121,26 +2126,26 @@ class Vultr extends Module
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->reboot($params);
+                    $response = $vultr_api->reboot($params);
                     break;
                 case 'stop':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->halt($params);
+                    $response = $vultr_api->halt($params);
                     break;
                 case 'start':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid
                     ];
-                    $vultr_api->reboot($params);
+                    $response = $vultr_api->reboot($params);
                     break;
                 case 'reinstall':
                     $params = [
                         'SUBID' => $service_fields->vultr_subid,
                         'hostname' => $service_fields->vultr_hostname
                     ];
-                    $vultr_api->reinstall($params);
+                    $response = $vultr_api->reinstall($params);
                     break;
                 case 'change_template':
                     if ($package->meta->set_template == 'client') {
@@ -2159,6 +2164,10 @@ class Vultr extends Module
                     break;
                 default:
                     break;
+            }
+
+            if (!empty($response)) {
+                $this->parseResponse($response);
             }
         }
 
