@@ -2245,7 +2245,7 @@ class Vultr extends Module
         }
 
         // Get application details
-        if (trim($server_details['os']) == 'Application') {
+        if (!empty($server_details) && trim($server_details['os']) == 'Application') {
             $application_details = $this->getApplicationDetails($vultr_api, $service);
         }
 
