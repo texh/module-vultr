@@ -2350,7 +2350,7 @@ class Vultr extends Module
                         'SUBID' => $service_fields->vultr_subid,
                         'SNAPSHOTID' => $this->Html->safe($post['snapshotid'])
                     ];
-                    $server_api->restoreSnapshot($params);
+                    $this->parseResponse($server_api->restoreSnapshot($params));
 
                     $vars = (object) $post;
                     break;
